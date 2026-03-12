@@ -98,8 +98,8 @@
 } 
 
 % Header content
-\lhead{\textsc{\includegraphics[width=1.8cm]{icam-common/icam_logo/logotype-seul-couleur-RVB.png} \leftmark }} % Actual section
-\rhead{\theUV} % Current UV
+\lhead{\textsc{ \leftmark }} % Actual section
+\rhead{\includegraphics[width=1.8cm]{icam-common/icam_logo/logotype-seul-couleur-RVB.png}}
 
 % Footer content
 \cfoot{\thepage} % Page number
