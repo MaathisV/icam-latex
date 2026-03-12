@@ -7,7 +7,7 @@
 \usepackage[headheight=61pt,bottom=1cm]{geometry} % Margins
 \usepackage{float} % Layout stuff
 \usepackage{xspace} % Spaces at the end of latex macros
-\usepackage{enumitem} %For custom itemize
+% \usepackage{enumitem} %For custom itemize
 \geometry{vmargin=3cm, textwidth=16cm} % Margins
 \usepackage{fancyhdr} % Header and footer customisation
 \pagestyle{fancy} % Header and footer customisation
@@ -145,20 +145,3 @@
 }
 
 \makeatletter
-
-% Custom itemize with Icam orange
-\newif\ificam@customitemize
-\icam@customitemizetrue % Enabled by default
-
-% Option to disable it
-\newcommand{\disableicamitemize}{\icam@customitemizefalse}
-
-% Redefine the itemize if enabled
-\AtBeginDocument{%
-  \ificam@customitemize
-    % \setlist[itemize,1]{label=\raisebox{0.2ex}{\includegraphics[height=1ex]{utc-common/utc_dot.png}}, labelsep=0.6em, left=1.5em}
-    % \renewcommand{\labelitemii}{\raisebox{0.15ex}{\includegraphics[height=0.7ex]{utc-common/utc_dot.png}}}
-  \fi
-}
-
-\makeatother
