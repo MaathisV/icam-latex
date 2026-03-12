@@ -1,4 +1,4 @@
-\ProvidesClass{utc-report/utc-report}
+\ProvidesClass{icam-report/icam-report}
 
 \LoadClass[a4paper,12pt]{article}
 
@@ -13,13 +13,12 @@
 \pagestyle{fancy} % Header and footer customisation
 
 \usepackage{ulem} % Color underlining
-\usepackage{utc-common/utc_colors} % UTC colors from 'utc-common'
+\usepackage{icam-common/icam_colors} % Icam colors from 'icam-common'
 
 \ProcessOptions\relax
 
-\newcommand{\UV}[1]{\def\theUV{#1}}
-\renewcommand{\labelitemi}{\color{utcyellow}$\bullet$} % itemize level 1
-\renewcommand{\labelitemii}{\color{utcgray}$\bullet$} % itemize level 2
+\renewcommand{\labelitemi}{\color{icamorange}$\bullet$} % itemize level 1
+\renewcommand{\labelitemii}{\color{icamgrey}$\bullet$} % itemize level 2
 \renewcommand{\title}[1]{\def\thetitle{#1}}
 \renewcommand{\author}[1]{\def\theauthor{#1}}
 \newcommand{\supervisor}[1]{\def\thesupervisor{#1}}
@@ -43,9 +42,9 @@
 }
 \makeatletter
 
-% Sections underlined in utcyellow
+% Sections underlined in icamorange
 \newcommand\sectionuline{
-  \bgroup\markoverwith{\textcolor{utcyellow}{\rule[-0.5ex]{0.1mm}{0.5mm}}}%
+  \bgroup\markoverwith{\textcolor{icamorange}{\rule[-0.5ex]{0.1mm}{0.5mm}}}%
   \ULon%
 }
 
@@ -63,25 +62,25 @@
   {\normalfont\Large\bfseries}%
 }
 
-% Subsections bigger and in gray UTC
+% Subsections bigger and in gray Icam
 \renewcommand\subsubsection{\@startsection {subsubsection}{3}{0em}
   {-2.5ex \@plus -0.6ex \@minus -.2ex}%
   {1.8ex \@plus .2ex}%
-  {\normalfont\large\bfseries\color{utcgray}}%
+  {\normalfont\large\bfseries\color{icamgrey}}%
 }
 
-% Paragraph bigger and in light gray utc
+% Paragraph bigger and in cyan Icam
 \renewcommand\paragraph{\@startsection {paragraph}{4}{3em}
   {-2ex \@plus -0.4ex \@minus -.2ex}%
   {1.3ex \@plus .2ex}%
-  {\normalfont\large\bfseries\color{utcgray_light}}%
+  {\normalfont\large\bfseries\color{icamcyan}}%
 }
 
-% Subparagraph in light gray utc
-\renewcommand\subparagraph{\@startsection {subparagraph}{5}{4em}% Redéfinition de la commande subparagraph (en gris clair UTC)
+% Subparagraph in cyan Icam
+\renewcommand\subparagraph{\@startsection {subparagraph}{5}{4em}
   {-1.5ex \@plus -0.2ex \@minus -.2ex}%
   {.8ex \@plus .2ex}%
-  {\normalfont\bfseries\color{utcgray_light}}%
+  {\normalfont\bfseries\color{icamcyan}}%
 }
 
 \makeatother
@@ -95,26 +94,21 @@
 
 %Changing the color of the footer line
 \renewcommand{\footrule}{%
-  {\color{utcyellow} \hrule width\headwidth height\footrulewidth \vskip+2mm}
+  {\color{icamorange} \hrule width\headwidth height\footrulewidth \vskip+2mm}
 } 
 
 % Header content
-\lhead{\textsc{\includegraphics[height=1cm]{utc-common/utc_icon.png} \leftmark }} % Actual section
+\lhead{\textsc{\includegraphics[width=1.8cm]{icam-common/icam_logo/logotype-seul-couleur-RVB.png} \leftmark }} % Actual section
 \rhead{\theUV} % Current UV
 
 % Footer content
 \cfoot{\thepage} % Page number
 \lfoot{\theauthor} % Autors
-\rfoot{%
-  \includegraphics[height=0.5cm]{utc-common/utc_icon.png}%
-  \hspace{0.5cm}%
-  \displaypartnerlogofooter
-}
 
 % No space after section number
-\makeatletter
-\def\@seccntformat#1{\csname the#1\endcsname.\ }
-\makeatother
+% \makeatletter
+% \def\@seccntformat#1{\csname the#1\endcsname.\ }
+% \makeatother
 
 % Title page
 \newcommand{\maketitlepage}{
@@ -123,7 +117,7 @@
   
   \begin{figure}[H]
     \centering
-    \includegraphics[width=7cm]{utc-common/utc_su_logo.png}
+    \includegraphics[width=7cm]{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}
     
     \vspace{1cm}
     \displaypartnerlogotitle
@@ -132,11 +126,11 @@
   \vspace{3cm}
   
   \begin{center}
-  {\color{utcyellow}\rule{\linewidth}{0.8mm}}
+  {\color{icamorange}\rule{\linewidth}{0.8mm}}
   \vspace*{0mm}
   
   \Huge{\textbf{\theUV \\ \thetitle}}
-  {\color{utcyellow}\rule{\linewidth}{0.8mm}}
+  {\color{icamorange}\rule{\linewidth}{0.8mm}}
   \vspace{2cm}
 
   \Large{\theauthor} \\[0.5cm]
@@ -152,18 +146,18 @@
 
 \makeatletter
 
-% Custom itemize with UTC yellow
-\newif\ifutc@customitemize
-\utc@customitemizetrue % Enabled by default
+% Custom itemize with Icam orange
+\newif\ificam@customitemize
+\icam@customitemizetrue % Enabled by default
 
 % Option to disable it
-\newcommand{\disableutcitemize}{\utc@customitemizefalse}
+\newcommand{\disableicamitemize}{\icam@customitemizefalse}
 
 % Redefine the itemize if enabled
 \AtBeginDocument{%
-  \ifutc@customitemize
-    \setlist[itemize,1]{label=\raisebox{0.2ex}{\includegraphics[height=1ex]{utc-common/utc_dot.png}}, labelsep=0.6em, left=1.5em}
-    \renewcommand{\labelitemii}{\raisebox{0.15ex}{\includegraphics[height=0.7ex]{utc-common/utc_dot.png}}}
+  \ificam@customitemize
+    % \setlist[itemize,1]{label=\raisebox{0.2ex}{\includegraphics[height=1ex]{utc-common/utc_dot.png}}, labelsep=0.6em, left=1.5em}
+    % \renewcommand{\labelitemii}{\raisebox{0.15ex}{\includegraphics[height=0.7ex]{utc-common/utc_dot.png}}}
   \fi
 }
 
