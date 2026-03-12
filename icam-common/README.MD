@@ -1,0 +1,3 @@
+# Icam Common
+
+Common ressources for all Icam LaTeX packages : colors, logos, ...
