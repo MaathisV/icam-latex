@@ -1,4 +1,4 @@
-% UTC-Beamer
+% Icam-Beamer
 % Main theme file
 
 % Define beamer variables
@@ -6,7 +6,7 @@
 \def\beamer@theme@false{false}
 \def\beamer@theme@withsecplan{false}
 \def\beamer@theme@navigation{false}
-\def\beamer@theme@utcrecherche{false}
+\def\beamer@theme@icamrecherche{false}
 \def\beamer@theme@pinkie{false}
 \def\beamer@theme@rounded{true}
 \def\beamer@theme@shadowed{false}
@@ -14,7 +14,7 @@
 % Set posibles options
 \DeclareOptionBeamer{navigation}{\def\beamer@theme@navigation{#1}}
 \DeclareOptionBeamer{withsecplan}{\def\beamer@theme@withsecplan{#1}}
-\DeclareOptionBeamer{utcrecherche}{\def\beamer@theme@utcrecherche{#1}}
+\DeclareOptionBeamer{icamrecherche}{\def\beamer@theme@icamrecherche{#1}}
 \DeclareOptionBeamer{pinkie}{\def\beamer@theme@pinkie{#1}}
 \DeclareOptionBeamer{rounded}{\def\beamer@theme@rounded{#1}}
 \DeclareOptionBeamer{shadowed}{\def\beamer@theme@shadowed{#1}}
@@ -22,33 +22,29 @@
 
 \mode<presentation>
 
-\useoutertheme[navigation=\beamer@theme@navigation,withsecplan=\beamer@theme@withsecplan]{utc}
-\useinnertheme[rounded=\beamer@theme@rounded,shadowed=\beamer@theme@shadowed]{utc}
+\useoutertheme[navigation=\beamer@theme@navigation,withsecplan=\beamer@theme@withsecplan]{icam}
+\useinnertheme[rounded=\beamer@theme@rounded,shadowed=\beamer@theme@shadowed]{icam}
 
-\usecolortheme{utc} % the color theme defined in 'beamercolorthemeutc.sty'
+\usecolortheme{icam} % the color theme defined in 'beamercolorthemeicam.sty'
 
 \mode<all>
 
 \def\hilite<#1>{%
   \temporal<#1>{\color{lightgray}}%
-  {\color{utcrose}}%
+  {\color{icamrose}}%
   {\color{charcoal}}
 }
 
 \def\@email{}
 \def\email#1{\def\@email{#1}}
 
-% Class code (Called UV at UTC)
-\def\@uv{}
-\def\uv#1{\def\@uv{#1}}
-
 % Semester
 \def\@semester{}
 \def\semester#1{\def\@semester{#1}}
 
-% UTC Logo
-\newcommand{\logoutc}[1]{\includegraphics[#1]{utc-common/utc_su_logo.png}}
-\newcommand{\logoutctext}{UNIVERSITÉ DE TECHNOLOGIE DE COMPIÈGNE}
+% Icam Logo
+\newcommand{\logoicamw}[1]{\includegraphics[#1]{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}}
+\newcommand{\logoicamtext}{UNIVERSITÉ DE TECHNOLOGIE DE COMPIÈGNE}
 
 % Command to insert properly the semester
 \newcommand{\insertuvsemester}{
@@ -70,8 +66,8 @@
 }
 
 % Title page of the beamer
-\newcommand{\utctitlepage}{
-  \raisebox{-11pt}[0pt]{\logoutc{width=3cm}}
+\newcommand{\icamtitlepage}{
+  \raisebox{-11pt}[0pt]{\logoicam{width=3cm}}
   \usebeamercolor{inverted structure}
   \begin{center}
     \vfill
@@ -101,8 +97,8 @@
 }
 
 % End page of the beamer
-\newcommand{\utcthankspage}[1][Thanks]{
-  \raisebox{-11pt}[0pt]{\logoutc{width=3cm}}
+\newcommand{\icamthankspage}[1][Thanks]{
+  \raisebox{-11pt}[0pt]{\logoicam{width=3cm}}
   \usebeamercolor{inverted structure}
   \begin{center}
     \vfill
