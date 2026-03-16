@@ -2,6 +2,8 @@
 
 \LoadClass[a4paper,12pt]{article}
 
+\usepackage[defaultfam,tabular,lining]{montserrat} %% Option 'defaultfam'
+\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
 \usepackage[T1]{fontenc} % French accents
 \usepackage{graphicx} % Figures
 \usepackage[headheight=61pt,bottom=1cm]{geometry} % Margins
