@@ -47,17 +47,7 @@
 \newcommand{\logoicamtext}{Institut Catholique des Arts et Métiers}
 
 % Command to insert properly the semester
-\newcommand{\insertuvsemester}{
-  \ifx\@uv\@empty
-    \relax
-  \else
-    \@uv
-    \ifx\@semester\@empty
-      \\
-    \else
-      ~---
-    \fi
-  \fi
+\newcommand{\insertsemester}{
   \ifx\@semester\@empty
     \relax
   \else
@@ -89,7 +79,7 @@
       \else
         \insertinstitute\\
       \fi
-      \insertuvsemester
+      \insertsemester
       \insertdate
     \end{footnotesize}
     \vfill
@@ -122,7 +112,7 @@
         ~---~\insertsubtitle
       \fi\\
       \vspace{.5cm}
-      \insertuvsemester
+      \insertsemester
       \insertdate
     \end{footnotesize}
     \vfill
