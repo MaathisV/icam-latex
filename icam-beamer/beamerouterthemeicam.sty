@@ -22,34 +22,20 @@
   \end{beamercolorbox}
 }
 
-% Footer of a frame (A footline in this case)
-\setbeamertemplate{footline}{
-
-  \hfill
-  \begin{beamercolorbox}[center, wd=8.8cm,ht=.4cm]{inverted structure}%
-      \makebox[8.7cm][l]{
-        \usebeamerfont{page number in head/foot}
-        \insertshorttitle{}
-        \ifx\insertsection\@empty
-          \relax
-        \else
-          ~\textendash~\insertsection
-        \fi
-        \hfill
-        \insertframenumber{} / \inserttotalframenumber
-      }
-      
-      \vskip2pt
-
-    \end{beamercolorbox}
-    \hfill\hfill
-    
-    \hfill\hfill\hfill
-    \makebox[2cm][l]{
-      \raisebox{-2pt}[-5pt]{\includegraphics[scale=0.2]{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}}
-    }
-    
-  \vskip4pt
+% Footer of a frame
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=5ex,dp=2.5ex,leftskip=1cm,rightskip=1cm]{inverted structure}%
+    \usebeamerfont{page number in head/foot}%
+    \insertshorttitle\ifx\insertsection\@empty\else\ -- \insertsection\fi%
+    \hfill%
+    \insertframenumber{} / \inserttotalframenumber%
+    \hfill%
+    \begin{minipage}[c][0pt]{2.5cm}%
+      \hfill\includegraphics[height=3.5ex]{icam-common/icam_logo/logotype-seul-monochromie-blanc.png}%
+    \end{minipage}%
+  \end{beamercolorbox}%
+  \vskip0pt%
 }
 
 % Make covered items semi-transparent instead of fully hidden
