@@ -15,11 +15,36 @@
 
 % Header of a frame
 \setbeamertemplate{frametitle}{
-  \vskip-1pt
-  \begin{beamercolorbox}[center, wd=\textwidth, ht=0.1\paperheight]{structure}
-    \raisebox{-8pt}{\insertframetitle}
-    \rule{\textwidth}{1pt}
-  \end{beamercolorbox}
+  \vspace*{-24pt} 
+  \begin{tikzpicture}[remember picture, overlay]
+     \node[anchor=north east, xshift=5pt, yshift=5pt] at (current page.north east) {
+        \pgfuseimage{icam-logo}
+     };
+  \end{tikzpicture}
+
+  \setlength{\fboxsep}{0pt} 
+  
+  % BREADCRUMBS
+  \begin{minipage}{\textwidth}
+    {\usebeamerfont{framesubtitle}\color{gray}\scriptsize
+    \insertsection \ifx\insertsubsection\empty\else\ $\rightarrow$ \insertsubsection\fi}
+  \end{minipage} \par
+
+  \vspace*{-5pt}
+
+  % TITLE
+  \begin{minipage}{\textwidth}
+    {\usebeamerfont{frametitle}\insertframetitle}
+  \end{minipage} \par
+  
+  \vspace*{-8pt}
+
+  \ifnum\inserttotalframenumber>0%
+    \makeatletter
+    \pgfmathsetmacro{\progresswidth}{\insertframenumber/\inserttotalframenumber}
+    \color{icamorange}\rule{\progresswidth\textwidth}{1.5pt}
+    \makeatother
+  \fi
 }
 
 % Footer of a frame
