@@ -48,21 +48,31 @@
 }
 
 % Footer of a frame
-\setbeamertemplate{footline}{%
-  \leavevmode%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=5ex,dp=2.5ex,leftskip=1cm,rightskip=1cm]{inverted structure}%
-    \usebeamerfont{page number in head/foot}%
-    \insertshorttitle\ifx\insertsection\@empty\else\ -- \insertsection\fi%
-    \hfill%
-    \insertframenumber{} / \inserttotalframenumber%
-    \hfill%
-    \begin{minipage}[c][0pt]{2.5cm}%
-      \hfill\includegraphics[height=3.5ex]{icam-common/icam_logo/logotype-seul-monochromie-blanc.png}%
-    \end{minipage}%
-  \end{beamercolorbox}%
-  \vskip0pt%
+\setbeamertemplate{footline}{
+  \leavevmode
+  \makebox[\paperwidth][l]{%
+    % Column 1
+    \colorbox{icamorange}{%
+      \parbox[c][2.5ex][c]{0.33\paperwidth}{%
+        \centering\color{white}\scriptsize ICAM
+      }%
+    }%
+    % Column 2
+    \colorbox{icamorange!60}{%
+      \parbox[c][2.5ex][c]{0.34\paperwidth}{%
+        \centering\color{white}\scriptsize \insertshorttitle
+      }%
+    }%
+    % Column 3
+    \colorbox{icamorange!30}{%
+      \parbox[c][2.5ex][c]{0.33\paperwidth}{%
+        \centering\color{black}\scriptsize % <--- Changed \raggedleft to \centering
+      \insertframenumber/\inserttotalframenumber
+    % Removed \hspace{0.5em} because centering handles the margins for you
+      }%
+    }%
+  }%
 }
-
 % Make covered items semi-transparent instead of fully hidden
 \beamertemplatetransparentcovered
 
