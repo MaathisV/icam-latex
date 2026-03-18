@@ -83,33 +83,41 @@
 
 % End page of the beamer
 \newcommand{\icamthankspage}[1][Thanks]{
-  \raisebox{-11pt}[0pt]{\logoicam{width=3cm}}
-  \usebeamercolor{inverted structure}
   \begin{center}
-    \vfill
-    \Huge{#1}\\
-    \vspace{.5cm}
-    \usebeamercolor[fg]{structure}
-    \large{\textbf{\insertauthor}}\\
-    \usebeamercolor[fg]{inverted structure}
-    \ifx\@email\@empty
-      \relax
-    \else
-      \vspace{.3cm}
-      \large{\@email}\\
+    \vspace{1cm}
+    {\Huge\color{icamorange} #1}\par
+    \vspace{0.8cm}
+    
+    {\usebeamerfont{author}\Large \insertauthor}\par
+    \ifx\@email\undefined\else
+      \vspace{0.2cm}
+      {\large\color{gray}\texttt{\@email}}\par
     \fi
-    \vspace{.5cm}
-    \begin{footnotesize}
-      \inserttitle
-      \ifx\insertsubtitle\@empty
-        \relax
-      \else
-        ~---~\insertsubtitle
-      \fi\\
-      \vspace{.5cm}
-      \insertsemester
-      \insertdate
-    \end{footnotesize}
+    
     \vfill
+    
+    \begin{minipage}{0.8\textwidth}
+      \centering\footnotesize
+      \textbf{\inserttitle} 
+      \ifx\insertsubtitle\@empty\else\ --- \insertsubtitle\fi\par
+      \vspace{0.3cm}
+      \insertsemester \quad \insertdate
+    \end{minipage}
+
+    \vfill
+
+    \begin{minipage}{\textwidth}
+      \centering
+      \pgfuseimage{icam-logo}
+      \ifx\inserttitlegraphic\empty\else
+        \quad\quad
+        \inserttitlegraphic
+      \fi
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    {\usebeamerfont{institute}\scriptsize\insertinstitute}
+
   \end{center}
 }
