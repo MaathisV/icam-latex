@@ -1,21 +1,16 @@
 % Icam-Beamer
 % Main theme file
-\pgfdeclareimage[width=18mm]{icam-logo}{icam-common/icam_logo/logotype-seul-couleur-RVB.png}
-\pgfdeclareimage[width=20mm]{icam-logo-text}{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}
 % Define beamer variables
 \def\beamer@theme@true{true}
 \def\beamer@theme@false{false}
 \def\beamer@theme@withsecplan{false}
 \def\beamer@theme@navigation{false}
-\def\beamer@theme@icamrecherche{false}
-\def\beamer@theme@pinkie{false}
 \def\beamer@theme@rounded{true}
 \def\beamer@theme@shadowed{false}
 
 % Set posibles options
 \DeclareOptionBeamer{navigation}{\def\beamer@theme@navigation{#1}}
 \DeclareOptionBeamer{withsecplan}{\def\beamer@theme@withsecplan{#1}}
-\DeclareOptionBeamer{pinkie}{\def\beamer@theme@pinkie{#1}}
 \DeclareOptionBeamer{rounded}{\def\beamer@theme@rounded{#1}}
 \DeclareOptionBeamer{shadowed}{\def\beamer@theme@shadowed{#1}}
 \ProcessOptionsBeamer
@@ -30,9 +25,9 @@
 \mode<all>
 
 \def\hilite<#1>{%
-  \temporal<#1>{\color{lightgray}}%
-  {\color{icamrose}}%
-  {\color{charcoal}}
+\temporal<#1>{\color{lightgray}}%
+{\color{icamrose}}%
+{\color{charcoal}}
 }
 
 \def\@email{}
@@ -43,8 +38,8 @@
 \def\semester#1{\def\@semester{#1}}
 
 % Icam Logo
-\newcommand{\logoicam}[1]{\includegraphics[#1]{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}}
-\newcommand{\logoicamtext}[1]{\includegraphics[#1]{icam-common/icam_logo/logotype-seul-couleur-RVB.png}}
+\pgfdeclareimage[width=18mm]{icam-logo}{icam-common/icam_logo/logotype-seul-couleur-RVB.png}
+\pgfdeclareimage[width=20mm]{icam-logo-text}{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}
 
 % Command to insert properly the semester
 \newcommand{\insertsemester}{
@@ -66,7 +61,6 @@
     
     \vfill % Pushes Institute/Logo to the bottom
     
-    % 3. THE LOGO ROW (ICAM + Others)
     \begin{minipage}{\textwidth}
       \centering
       \includegraphics[width=2.5cm]{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}
