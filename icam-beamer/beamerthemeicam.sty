@@ -56,33 +56,34 @@
 }
 
 % Title page of the beamer
-\newcommand{\icamtitlepage}{
-  \raisebox{-11pt}[0pt]{\logoicam{width=3cm}}
-  \usebeamercolor{inverted structure}
+\setbeamertemplate{title page}{
   \begin{center}
-    \vfill
-    \Huge{\inserttitle}\\
-    \ifx\insertsubtitle\@empty
-    \relax
-    \else
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\Large\inserttitle}\par
+    \ifx\insertsubtitle\@empty\else
     \vspace{.3cm}
-    \Large{\insertsubtitle}\\
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
     \fi
-    \vspace{.5cm}
-    \usebeamercolor[fg]{structure}
-    \large{\textbf{\insertauthor}}\\
-    \usebeamercolor[fg]{inverted structure}
-    \begin{footnotesize}
-      \vspace{.5cm}
-      \ifx\insertinstitute\@empty
-        \relax
+    
+    \vfill % Pushes Institute/Logo to the bottom
+    
+    % 3. THE LOGO ROW (ICAM + Others)
+    \begin{minipage}{\textwidth}
+      \centering
+      \includegraphics[width=2.5cm]{icam-common/icam_logo/logotype-baseline-couleur-RVB.png}
+      \ifx\inserttitlegraphic\@empty
       \else
-        \insertinstitute\\
+        \quad\quad
+        \inserttitlegraphic
       \fi
-      \insertsemester
-      \insertdate
-    \end{footnotesize}
+    \end{minipage}\par
+    
+    \vspace{0.3cm}
+    
+    {\usebeamerfont{institute}\insertinstitute}
     \vfill
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+    \quad--\quad
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
   \end{center}
 }
 
