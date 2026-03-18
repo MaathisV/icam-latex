@@ -51,24 +51,20 @@
 \setbeamertemplate{footline}{
   \leavevmode
   \makebox[\paperwidth][l]{%
-    % Column 1
     \colorbox{icamorange}{%
       \parbox[c][2.5ex][c]{0.33\paperwidth}{%
-        \centering\color{white}\scriptsize ICAM
+        \centering\color{white}\scriptsize\strut\protect\insertshortinstitute
       }%
     }%
-    % Column 2
-    \colorbox{icamorange!60}{%
+    \colorbox{icamorange!75}{%
       \parbox[c][2.5ex][c]{0.34\paperwidth}{%
-        \centering\color{white}\scriptsize \insertshorttitle
+        \centering\color{white}\scriptsize\strut\protect\insertshorttitle
       }%
     }%
-    % Column 3
-    \colorbox{icamorange!30}{%
+    \colorbox{icamorange!50}{%
       \parbox[c][2.5ex][c]{0.33\paperwidth}{%
-        \centering\color{black}\scriptsize % <--- Changed \raggedleft to \centering
+        \centering\color{white}\scriptsize
       \insertframenumber/\inserttotalframenumber
-    % Removed \hspace{0.5em} because centering handles the margins for you
       }%
     }%
   }%
