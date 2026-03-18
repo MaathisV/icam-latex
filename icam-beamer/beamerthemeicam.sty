@@ -50,8 +50,20 @@
   \fi
 }
 
+\pgfdeclareimage[height=\paperheight]{onde-bottom-corner}{icam-common/ondes.png}
+
+% 2. Create the reusable command
+\newcommand{\insertondesbgcorner}{%
+  \begin{tikzpicture}[remember picture, overlay]
+     \node[anchor=south east, xshift=0pt, yshift=0pt, inner sep=0pt, outer sep=0pt] at (current page.south east) {
+        \pgfuseimage{onde-bottom-corner}
+     };
+  \end{tikzpicture}%
+}
+
 % Title page of the beamer
 \setbeamertemplate{title page}{
+  \insertondesbgcorner
   \begin{center}
     {\usebeamerfont{title}\usebeamercolor[fg]{title}\Large\inserttitle}\par
     \ifx\insertsubtitle\@empty\else
@@ -59,7 +71,7 @@
       {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
     \fi
     
-    \vfill % Pushes Institute/Logo to the bottom
+    \vfill
     
     \begin{minipage}{\textwidth}
       \centering
@@ -83,6 +95,7 @@
 
 % End page of the beamer
 \newcommand{\icamthankspage}[1][Thanks]{
+  \insertondesbgcorner
   \begin{center}
     \vspace{1cm}
     {\Huge\color{icamorange} #1}\par
