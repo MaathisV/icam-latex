@@ -23,16 +23,16 @@ TARGET_DIR="$DEST/tex/latex"
 mkdir -p "$TARGET_DIR"
 
 # Download latest release from GitHub
-ZIP_URL=$(curl -s https://api.github.com/repos/qaniere/utc-latex/releases/latest | grep "browser_download_url.*utc-latex.zip" | cut -d '"' -f 4)
-if [ -z "$ZIP_URL" ]; then
-  echo "Could not find the download URL for utc-latex.zip"
-  exit 1
-fi
+# ZIP_URL=$(curl -s https://api.github.com/repos/qaniere/icam-latex/releases/latest | grep "browser_download_url.*icam-latex.zip" | cut -d '"' -f 4)
+# if [ -z "$ZIP_URL" ]; then
+#   echo "Could not find the download URL for icam-latex.zip"
+#   exit 1
+# fi
 
-echo "Downloading utc-latex.zip from: $ZIP_URL"
-curl -L "$ZIP_URL" -o /tmp/utc-latex.zip
+# echo "Downloading icam-latex.zip from: $ZIP_URL"
+# curl -L "$ZIP_URL" -o /tmp/icam-latex.zip
 
 # Extract to destination
-unzip -o /tmp/utc-latex.zip -d "$TARGET_DIR"
+unzip -o ./icam-latex.zip -d "$TARGET_DIR"
 
-echo "UTC LaTeX installed to $TARGET_DIR"
+echo "icam LaTeX installed to $TARGET_DIR"
